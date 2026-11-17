@@ -1,26 +1,116 @@
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Page */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f8f7f2;
+    color: #26352b;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #244b37;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    font-size: 26px;
+}
+
+.navbar div {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #c7e8b4;
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
+
+.container > h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.container > p {
+    color: #68756b;
+    margin-bottom: 35px;
+    font-size: 17px;
+}
+
+/* Recipe grid */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+/* Recipe cards */
+.recipe-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #e5e8df;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.recipe-card h2 {
+    color: #244b37;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.recipe-card p {
+    color: #68756b;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .container {
+        margin: 30px auto;
+    }
+
+    .container > h1 {
+        font-size: 28px;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
 }
